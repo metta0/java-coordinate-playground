@@ -1,4 +1,4 @@
-public class K5 extends Car {
+public class K5 extends RentCar {
     
     K5(double distance){
         this.name = "K5";
@@ -7,12 +7,12 @@ public class K5 extends Car {
     }
 
     @Override
-    double getDistance() {
+    public double getDistance() {
         return this.distance;
     }
 
     @Override
-    double getFuelEfficiency() {
+    public double getFuelEfficiency() {
         return this.fuleEfficiency;
     }
 
