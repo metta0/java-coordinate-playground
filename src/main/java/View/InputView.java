@@ -9,14 +9,14 @@ import java.util.regex.Pattern;
 
 public class InputView {
     
-    public List<int[]> getCoordinatesFromUser() throws Exception{
+    public List<int[]> getCoordinatesFromUser() throws IllegalArgumentException{
         
         Scanner scanner = new Scanner(System.in);
         String inputString = scanner.nextLine();
         List<int[]> result;
 
         if(!isInputValid(inputString))
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("좌표 형식은 (숫자,숫자) 이어야 합니다.");
         
         result = getCoordinates(inputString);
         

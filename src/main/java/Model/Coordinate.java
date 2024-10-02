@@ -4,7 +4,7 @@ public class Coordinate {
     CoordinateVariable x;
     CoordinateVariable y;
 
-    Coordinate(int x,int y){
+    public Coordinate(int x,int y){
         this.x = new CoordinateVariable(x);
         this.y= new CoordinateVariable(y);
     }
