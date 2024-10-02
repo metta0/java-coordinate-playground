@@ -1,3 +1,4 @@
+package Model;
 
 class CoordinateVariable {
     int value;
