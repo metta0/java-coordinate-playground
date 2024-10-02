@@ -9,11 +9,11 @@ public class Coordinate {
         this.y= new CoordinateVariable(y);
     }
 
-    double getX(){
+    int getX(){
         return this.x.getValue();
     }
 
-    double getY(){
+    int getY(){
         return this.y.getValue();
     }
     

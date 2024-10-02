@@ -1,19 +1,26 @@
 package Model;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Coordinates {
     List<Coordinate> coordinates;
 
-    Coordinates(List<Coordinate> coordinatesList){
+    public Coordinates(List<Coordinate> coordinatesList){
         coordinates = coordinatesList;
     }
 
-    double getLineDistance() throws Exception{
-        if(coordinates.size() != 2) throw new RuntimeException();
-        Coordinate coorFirst = coordinates.get(0);
-        Coordinate coorSecond = coordinates.get(1);
-        
-        return Math.sqrt( Math.pow(coorFirst.getY()-coorSecond.getY(),2) +
-                             Math.pow(coorFirst.getX()-coorSecond.getX(),2));
+    public int size(){
+        return coordinates.size();
     }
+
+    public List<int[]> getCoordinates(){
+        ArrayList<int[]> result = new ArrayList<>();
+
+        for(Coordinate coord : this.coordinates){
+            result.add(new int[]{coord.getX(), coord.getY()});
+        }
+
+        return result;
+    }
+
 }
