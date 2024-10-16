@@ -1,9 +1,9 @@
 package Model;
 
-class CoordinateVariable {
+class PointVariable {
     int value;
 
-    CoordinateVariable(int value){
+    PointVariable(int value){
         if(value>24 || value<0) throw new IllegalArgumentException("입력 숫자의 범위는 0이상 24이하 입니다. 다시 입력해 주세요 : ");
 
         this.value = value;
@@ -12,9 +12,9 @@ class CoordinateVariable {
     @Override
     public boolean equals(Object obj) {
         if(this == obj) return true;
-        if(!(obj instanceof CoordinateVariable)) return false;
+        if(!(obj instanceof PointVariable)) return false;
 
-        CoordinateVariable variable = (CoordinateVariable) obj;
+        PointVariable variable = (PointVariable) obj;
         return this.getValue() == variable.getValue();
     }
 

@@ -1,9 +1,10 @@
 package Model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
-import Model.Coordinate;
+import Model.Point;
 import Model.Line;
 
 public class LineTest {
@@ -12,7 +13,8 @@ public class LineTest {
 
     @Test
     public void getDistanceTest() throws Exception{
-        line = new Line(new Coordinate(1,1), new Coordinate(2,2));
+        Points points = new Points(Arrays.asList(new Point(1,1), new Point(2,2)));
+        line = new Line(points);
         assertEquals( 1.414 , line.getLineDistance(), 0.001);
     }
     

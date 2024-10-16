@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class InputView {
 
-    public List<int[]> getCoordinatesFromUser() throws IllegalArgumentException {
+    public List<int[]> getPointsFromUser() throws IllegalArgumentException {
 
         Scanner scanner = new Scanner(System.in);
         String inputString = scanner.nextLine();
@@ -17,7 +17,7 @@ public class InputView {
         if (!isInputValid(inputString))
             throw new IllegalArgumentException("좌표 형식은 (숫자,숫자) 이어야 합니다.");
 
-        result = getCoordinates(inputString);
+        result = getPoints(inputString);
 
         return result;
 
@@ -32,7 +32,7 @@ public class InputView {
         return false;
     }
 
-    private List<int[]> getCoordinates(String inputText) {
+    private List<int[]> getPoints(String inputText) {
         ArrayList<int[]> result = new ArrayList<>();
         Matcher matcher = Pattern.compile("\\((\\d+),(\\d+)\\)").matcher(inputText);
 

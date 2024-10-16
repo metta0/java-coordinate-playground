@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import Model.Coordinate;
-import Model.Coordinates;
+import Model.Point;
+import Model.Points;
 import Model.Line;
 import Model.ResultView;
 import View.InputView;
@@ -15,60 +15,72 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<int[]> inputCoordinates = getCoordinatesFromUser();
-        Coordinates coordinates = transformToCoordinates(inputCoordinates);
+        List<int[]> inputPoints = getPointsFromUser();
+        Points points = transformToPoints(inputPoints);
 
         // 2. 좌표에 특수문자 표시
-        drawCoordinates(coordinates);
+        drawPoints(points);
 
         // 3. 좌표가 두 개 일 경우, 거리 출력
-        if (isTwoCoordinatesGiven(coordinates)) {
-            showLineDistance(coordinates);
+        if (isTwoPointsGiven(points)) {
+            showLineDistance(points);
+        }
+
+        if (isFourPointsGiven(points)){
+            showSquareArea(points);
         }
     }
 
-    public static List<int[]> getCoordinatesFromUser() {
+    public static List<int[]> getPointsFromUser() {
         InputView inputView = new InputView();
         List<int[]> result;
 
         // 1.입력 범위 초과 시 에러 문구 출력 후 다시 입력받기
         try {
-            result = inputView.getCoordinatesFromUser();
+            result = inputView.getPointsFromUser();
         } catch (IllegalArgumentException e) {
             System.out.println(e.toString());
-            result = getCoordinatesFromUser();
+            result = getPointsFromUser();
         }
 
         return result;
     }
 
-    public static Coordinates transformToCoordinates(List<int[]> inputCoordinates) {
-        ArrayList<Coordinate> coordinatesArray = new ArrayList<>();
+    public static Points transformToPoints(List<int[]> inputPoints) {
+        ArrayList<Point> pointsArray = new ArrayList<>();
 
-        for (int[] coord : inputCoordinates) {
-            coordinatesArray.add(new Coordinate(coord[0], coord[1]));
+        for (int[] tempPoint : inputPoints) {
+            pointsArray.add(new Point(tempPoint[0], tempPoint[1]));
         }
 
-        return new Coordinates(coordinatesArray);
+        return new Points(pointsArray);
     }
 
-    public static void drawCoordinates(Coordinates coordinates){
-        Set<String> coords = coordinates.getCoordinatesAsSet();
-        resultView.draw(coords);
+    public static void drawPoints(Points Points){
+        Set<String> pointSet = Points.getPointsAsSet();
+        resultView.draw(pointSet);
     }
 
-    public static boolean isTwoCoordinatesGiven(Coordinates coordinates) {
-        return coordinates.size() == 2;
+    public static boolean isTwoPointsGiven(Points points) {
+        return points.size() == 2;
     }
 
-    public static void showLineDistance(Coordinates coordinates) {
-        List<int[]> coords = coordinates.getCoordinatesAsList();
-
-        Coordinate coor1 = new Coordinate(coords.get(0)[0], coords.get(0)[1]);
-        Coordinate coor2 = new Coordinate(coords.get(1)[0], coords.get(1)[1]);
-
-        Line line = new Line(coor1, coor2);
+    public static void showLineDistance(Points points) {
+        Line line = new Line(points);
 
         resultView.showDistance(line.getLineDistance());
     }
+
+    public static boolean isFourPointsGiven(Points Points) {
+        return Points.size() == 4;
+    }
+
+    public static void showSquareArea(Points points) {
+
+        Line line = new Line(points);
+
+        resultView.showDistance(line.getLineDistance());
+    }
+
+
 }

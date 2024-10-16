@@ -5,31 +5,31 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import Model.CoordinateVariable;
+import Model.PointVariable;
 
-public class CoordinateVariableTest {
+public class PointVariableTest {
 
-    CoordinateVariable x;
-    CoordinateVariable y;
+    PointVariable x;
+    PointVariable y;
 
     @Test
     public void variableValueTest(){
-        x = new CoordinateVariable(10);
-        y = new CoordinateVariable(10);
+        x = new PointVariable(10);
+        y = new PointVariable(10);
         assertEquals(x,y);
     }
 
     @Test
     public void illegalInputExceed24Test(){
         assertThatThrownBy(() -> {
-            x = new CoordinateVariable(25);
+            x = new PointVariable(25);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void illegalInputbelow0Test(){
         assertThatThrownBy(() -> {
-            x = new CoordinateVariable(-1);
+            x = new PointVariable(-1);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
