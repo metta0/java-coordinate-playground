@@ -6,6 +6,7 @@ import java.util.Set;
 
 import Model.Point;
 import Model.Points;
+import Model.Rectangle;
 import Model.Line;
 import Model.ResultView;
 import View.InputView;
@@ -27,7 +28,7 @@ public class Main {
         }
 
         if (isFourPointsGiven(points)){
-            showSquareArea(points);
+            showRectangleArea(points);
         }
     }
 
@@ -75,11 +76,11 @@ public class Main {
         return Points.size() == 4;
     }
 
-    public static void showSquareArea(Points points) {
+    public static void showRectangleArea(Points points) {
 
-        Line line = new Line(points);
+        Rectangle rectangle = new Rectangle(points);
 
-        resultView.showDistance(line.getLineDistance());
+        resultView.showRectangleArea(rectangle.getArea());
     }
 
 

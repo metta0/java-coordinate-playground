@@ -3,9 +3,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Points {
-    final List<Point> points;
+    private final List<Point> points;
 
     public Points(List<Point> pointsList){
         this.points = new ArrayList<>(pointsList);
@@ -15,24 +16,19 @@ public class Points {
         return points.size();
     }
 
+    public List<Point> getPoints(){
+        return new ArrayList(points);
+    }
+
     public List<int[]> getPointsAsList(){
-        ArrayList<int[]> result = new ArrayList<>();
-
-        for(Point coord : this.points){
-            result.add(new int[]{coord.getX(), coord.getY()});
-        }
-
-        return result;
+        return points.stream()
+                     .map(point -> new int[]{point.getX(), point.getY()})
+                     .toList();
     }
 
     public Set<String> getPointsAsSet(){
-        Set<String> result = new HashSet<>();
-
-        for(Point coord : this.points){
-            result.add(coord.getX()+","+coord.getY());
-        }
-        
-        return result;
+        return points.stream()
+                     .map(Point::toString)
+                     .collect(Collectors.toSet());
     }
-
 }

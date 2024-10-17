@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
 
 public class ResultView {
@@ -90,6 +88,10 @@ public class ResultView {
 
     public void showDistance(double lineDistance) {
         System.out.printf("두 점 사이 거리는 %.3f \n", lineDistance);
+    }
+
+    public void showRectangleArea(double rectangleArea) {
+        System.out.printf("사각형 넓이는 %.3f \n", rectangleArea);
     }
     
     public void showResult(String result) {

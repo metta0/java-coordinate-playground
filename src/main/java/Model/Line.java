@@ -1,5 +1,4 @@
 package Model;
-import java.util.Arrays;
 import java.util.List;
 
 public class Line {
@@ -12,13 +11,10 @@ public class Line {
     }
 
     public double getLineDistance(){
-        List<int[]> pointsList = points.getPointsAsList(); 
-        
-        int[] point1 = pointsList.get(0);
-        int[] point2 = pointsList.get(1);
-        
-        double absDiffX = Math.abs(point1[0]-point2[0]);
-        double absDiffY = Math.abs(point1[1]-point2[1]);
+        List<Point> pointList = points.getPoints();
+
+        double absDiffX = Math.abs(pointList.get(0).getX()-pointList.get(1).getX());
+        double absDiffY = Math.abs(pointList.get(0).getY()-pointList.get(1).getY());
 
         return Math.sqrt(Math.pow(absDiffX,2) +
                              Math.pow(absDiffY,2));
