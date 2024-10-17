@@ -1,10 +1,8 @@
 package Controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import Model.Point;
+import Model.PointFactory;
 import Model.Points;
 import Model.Rectangle;
 import Model.Line;
@@ -17,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<int[]> inputPoints = getPointsFromUser();
-        Points points = transformToPoints(inputPoints);
+        Points points = PointFactory.createPointsFromList(inputPoints);
 
         // 2. 좌표에 특수문자 표시
         drawPoints(points);
@@ -46,16 +44,6 @@ public class Main {
 
         return result;
     }
-
-    public static Points transformToPoints(List<int[]> inputPoints) {
-        ArrayList<Point> pointsArray = new ArrayList<>();
-
-        for (int[] tempPoint : inputPoints) {
-            pointsArray.add(new Point(tempPoint[0], tempPoint[1]));
-        }
-
-        return new Points(pointsArray);
-    }
  
     public static void drawPoints(Points Points){
         Set<String> pointSet = Points.getPointsAsSet();
@@ -77,11 +65,8 @@ public class Main {
     }
 
     public static void showRectangleArea(Points points) {
-
         Rectangle rectangle = new Rectangle(points);
 
         resultView.showRectangleArea(rectangle.getArea());
     }
-
-
 }

@@ -5,17 +5,18 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 
-public class Rectangle {
+public class Rectangle extends Figure{
     Points points;
 
     public Rectangle(Points points){
         
-        validationRectangle(points);
+        validationFigure(points);
 
         this.points = points;
     }
 
-    private void validationRectangle(Points points){
+    @Override
+    void validationFigure(Points points){
         if(points.size() != 4) throw new IllegalArgumentException("직사각형은 점이 4개여야 합니다.");
         
         if(isNotRectangle(points)) throw new IllegalArgumentException("이 사각형은 직사각형이 아닙니다.");
@@ -32,11 +33,12 @@ public class Rectangle {
         return true;
     }
 
+    @Override
     public double getArea(){
-        List<int[]> pointsList = points.getPointsAsList();
+        List<Point> pointsList = points.getPoints();
 
-        Set<Integer> setX = pointsList.stream().map(point -> point[0]).collect(Collectors.toSet());
-        Set<Integer> setY = pointsList.stream().map(point -> point[1]).collect(Collectors.toSet());
+        Set<Integer> setX = pointsList.stream().map(point -> point.getX()).collect(Collectors.toSet());
+        Set<Integer> setY = pointsList.stream().map(point -> point.getY()).collect(Collectors.toSet());
         
         return (setX.stream()
             .reduce((a,b) -> Math.abs(a - b))
