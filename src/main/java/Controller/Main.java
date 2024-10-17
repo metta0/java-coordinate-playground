@@ -55,7 +55,7 @@ public class Main {
 
         return new Points(pointsArray);
     }
-
+ 
     public static void drawPoints(Points Points){
         Set<String> pointSet = Points.getPointsAsSet();
         resultView.draw(pointSet);

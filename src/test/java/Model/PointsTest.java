@@ -8,18 +8,18 @@ import org.junit.jupiter.api.Test;
 
 public class PointsTest {
 
-    Points coordinates;
+    Points points;
 
     @Test
     public void getLineDistanceTest() throws Exception{
         
-        coordinates = new Points(Arrays.asList(new Point(1,1), new Point(2,2)));
+        points = new Points(Arrays.asList(new Point(1,1), new Point(2,2)));
     }
     
     @Test
     public void getCoordinatesAsSetTest() throws Exception{
-        coordinates = new Points(Arrays.asList(new Point(1,1), new Point(2,2)));
-        assertTrue(coordinates.getCoordinatesAsSet().contains("1,1"));
-        assertFalse(coordinates.getCoordinatesAsSet().contains("1,2"));
+        points = new Points(Arrays.asList(new Point(1,1), new Point(2,2)));
+        assertTrue(points.getPointsAsSet().contains("1,1"));
+        assertFalse(points.getPointsAsSet().contains("1,2"));
     }
 }
