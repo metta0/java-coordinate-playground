@@ -3,6 +3,7 @@ package coordinate;
 import java.util.List;
 
 public class FigureFactory {
+    
     static Figure getInstance(List<Point> points) {
         if (points.size() == Line.LINE_POINT_SIZE) {
             return new Line(points);
