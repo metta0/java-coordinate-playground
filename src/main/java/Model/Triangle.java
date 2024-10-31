@@ -2,10 +2,10 @@ package Model;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Triangle extends Figure{
+    public static final String RESULT_PREFIX = "삼각형의 넓이는 ";
+
     Points points;
 
     public Triangle(Points points){
@@ -31,6 +31,11 @@ public class Triangle extends Figure{
         double s = (a+b+c)/2;
         
         return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+    }
+
+    @Override
+    public String showResult(){
+        return RESULT_PREFIX + getArea();
     }
     
 }

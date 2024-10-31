@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 
 public class Rectangle extends Figure{
+    public static final String RESULT_PREFIX = "사각형의 넓이는 ";
+
     Points points;
 
     public Rectangle(Points points){
@@ -47,6 +49,11 @@ public class Rectangle extends Figure{
             setY.stream()
             .reduce((a, b) -> Math.abs(a -b))
             .orElse(0) ;
+    }
+
+    @Override
+    public String showResult(){
+        return RESULT_PREFIX + getArea();
     }
 
 }

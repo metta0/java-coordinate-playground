@@ -5,9 +5,10 @@ import java.util.Set;
 import Model.PointFactory;
 import Model.Points;
 import Model.Rectangle;
+import Model.Triangle;
 import Model.Line;
-import Model.ResultView;
 import View.InputView;
+import View.ResultView;
 
 public class Main {
     final static ResultView resultView = new ResultView();
@@ -17,14 +18,16 @@ public class Main {
         List<int[]> inputPoints = getPointsFromUser();
         Points points = PointFactory.createPointsFromList(inputPoints);
 
-        // 2. 좌표에 특수문자 표시
+        // 2. 좌표평면에 도형 표시
         drawPoints(points);
 
-        // 3. 좌표가 두 개 일 경우, 거리 출력
+        // 3. 도형의 길이 또는 넓이 표시
         if (isTwoPointsGiven(points)) {
             showLineDistance(points);
         }
-
+        if (isThreePointsGiven(points)) {
+            showTriangleArea(points);
+        }
         if (isFourPointsGiven(points)){
             showRectangleArea(points);
         }
@@ -57,7 +60,17 @@ public class Main {
     public static void showLineDistance(Points points) {
         Line line = new Line(points);
 
-        resultView.showDistance(line.getLineDistance());
+        resultView.printOut(line.showResult());
+    }
+
+    public static boolean isThreePointsGiven(Points Points) {
+        return Points.size() == 3;
+    }
+    
+    public static void showTriangleArea(Points points) {
+        Triangle Triangle = new Triangle(points);
+
+        resultView.printOut(Triangle.showResult());
     }
 
     public static boolean isFourPointsGiven(Points Points) {
@@ -67,6 +80,6 @@ public class Main {
     public static void showRectangleArea(Points points) {
         Rectangle rectangle = new Rectangle(points);
 
-        resultView.showRectangleArea(rectangle.getArea());
+        resultView.printOut(rectangle.showResult());
     }
 }

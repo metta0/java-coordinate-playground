@@ -6,4 +6,6 @@ abstract class Figure {
     abstract void validationFigure(Points points);
 
     public abstract double getArea();
+    
+    public abstract String showResult();
 }
