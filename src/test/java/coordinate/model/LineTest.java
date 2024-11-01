@@ -24,6 +24,6 @@ public class LineTest {
     void 직선인경우_두점사이의거리_출력(){
         List<Point> points = new ArrayList(Arrays.asList(new Point(1,2), new Point(3,4)));
         Line line = new Line(points);
-        assertEquals(line.getDistance(), 2.828, 0.001);
+        assertEquals(line.getArea(), 2.828, 0.001);
     }
 }

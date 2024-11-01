@@ -31,12 +31,16 @@ public class Point {
         return this.x ==given_X && this.y == given_Y;
     }
 
-    public double calculateDistance(Point point) {
+    public double calculateDistance(Point point){
         return Math.sqrt(powDifference(this.x, point.x) + powDifference(this.y, point.y));
     }
 
     public double powDifference(int first, int second){
         return Math.pow((first - second),2);
+    }
+
+    public double calculateSlope(Point point){
+        return (this.y - point.y) / (this.x-point.x);
     }
 
     public int getX(){

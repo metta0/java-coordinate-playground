@@ -34,7 +34,7 @@ public class RectangleTest {
         List<Point> points = new ArrayList(Arrays.asList(new Point(1,1), new Point(1,3), new Point(3,1), new Point(3,3)));
         Rectangle rectangle = new Rectangle(points);
 
-        assertEquals(rectangle.area(), 4, 0.001);
+        assertEquals(rectangle.getArea(), 4, 0.001);
         
     }
 

@@ -6,22 +6,20 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Rectangle {
+public class Rectangle extends AbstractFigure {
     private static final int NUMBER_OF_POINTS = 4;
     private static final int NUMBER_OF_UNIQUE_POINTS = 2;
     private static final String RESULT_PREFIX = "사각형의 넓이는 ";
     private static final String ERROR_NUMBER_OF_POINTS = "점의 갯수가 " + NUMBER_OF_POINTS + "개 여야 합니다.";
     private static final String RECTANGLE_ERROR = "직사각형이어야 합니다.";
 
-    private final List<Point> points;
-
     Rectangle(List<Point> points){
+        super(points);
         checkValidation(points);
-
-        this.points = points;
     }
 
-    private void checkValidation(List<Point> points){
+    @Override
+    public void checkValidation(List<Point> points){
         if(isPointCountInvalid(points)) throw new IllegalArgumentException(ERROR_NUMBER_OF_POINTS);
         if(isPointRectangle(points)) throw new IllegalArgumentException(RECTANGLE_ERROR);
     }
@@ -57,9 +55,10 @@ public class Rectangle {
         return values.size() != NUMBER_OF_UNIQUE_POINTS;
     }
 
-    public double area(){        
-        int differenceOfX = getDifference(removeDuplicationOfX(points));
-        int differenceOfY = getDifference(removeDuplicationOfY(points));
+    @Override
+    public double getArea(){        
+        int differenceOfX = getDifference(removeDuplicationOfX(getPoints()));
+        int differenceOfY = getDifference(removeDuplicationOfY(getPoints()));
 
         return differenceOfX * differenceOfY;
     }
@@ -68,7 +67,8 @@ public class Rectangle {
         return Math.abs(values.stream().collect(Collectors.toList()).get(1) - values.stream().collect(Collectors.toList()).get(0));
     }
 
-    public String showString(){
-        return RESULT_PREFIX + area();
+    @Override
+    public String areaInfo(){
+        return RESULT_PREFIX + getArea();
     }
 }
