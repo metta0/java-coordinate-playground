@@ -39,6 +39,14 @@ public class Point {
         return Math.pow((first - second),2);
     }
 
+    public int getX(){
+        return this.x;
+    }
+
+    public int getY(){
+        return this.y;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(this == obj) return true;

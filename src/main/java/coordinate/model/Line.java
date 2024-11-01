@@ -12,10 +12,14 @@ public class Line {
     private final List<Point> points;
 
     Line(List<Point> points){
+        checkValidation(points);
+
+        this.points = points;
+    }
+
+    private void checkValidation(List<Point> points){
         if(isPointCountInvalid(points)) throw new IllegalArgumentException(NUMBER_OF_POINTS_ERROR);
         if(isSamePoints(points)) throw new IllegalArgumentException(SAME_POINTS_ERROR);
-        
-        this.points = points;
     }
     
     private boolean isPointCountInvalid(List<Point> points){
