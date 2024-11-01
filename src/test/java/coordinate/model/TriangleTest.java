@@ -12,7 +12,7 @@ public class TriangleTest {
     @Test
     void 삼각형_점3개가_직선인지(){
         assertThatThrownBy(() -> {
-            Triangle triangle = new Triangle(Arrays.asList(new Point(1,1), new Point(2,2), new Point(3,3)));
+            Figure triangle = FigureFactory.create(Arrays.asList(new Point(1,1), new Point(2,2), new Point(3,3)));
         }).isInstanceOf(IllegalArgumentException.class);
         
     }
@@ -20,14 +20,14 @@ public class TriangleTest {
     @Test
     void 삼각형_점3개인지(){
         assertThatThrownBy(() -> {
-            Triangle triangle = new Triangle(Arrays.asList(new Point(1,1), new Point(2,2), new Point(1,1)));
+            Figure triangle = FigureFactory.create(Arrays.asList(new Point(1,1), new Point(2,2), new Point(1,1)));
         }).isInstanceOf(IllegalArgumentException.class);
         
     }
     
     @Test
     void 삼각형_넓이구하기(){
-        Triangle triangle = new Triangle(Arrays.asList(new Point(10,10), new Point(14,15), new Point(20,8)));
-        assertEquals(triangle.getArea(), 29 , 0.1);
+            Figure triangle = FigureFactory.create(Arrays.asList(new Point(10,10), new Point(14,15), new Point(20,8)));
+            assertEquals(triangle.getArea(), 29 , 0.1);
     }
 }

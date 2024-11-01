@@ -16,14 +16,14 @@ public class LineTest {
         List<Point> points = new ArrayList(Arrays.asList(new Point(1,2), new Point(1,2)));
         
         assertThatThrownBy(()->{
-            Line line = new Line(points);
+            Figure line = FigureFactory.create(points);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 직선인경우_두점사이의거리_출력(){
         List<Point> points = new ArrayList(Arrays.asList(new Point(1,2), new Point(3,4)));
-        Line line = new Line(points);
+        Figure line = FigureFactory.create(points);
         assertEquals(line.getArea(), 2.828, 0.001);
     }
 }

@@ -16,7 +16,7 @@ public class RectangleTest {
         List<Point> points = new ArrayList(Arrays.asList(new Point(1,1), new Point(1,1), new Point(3,1), new Point(3,3)));
         
         assertThatThrownBy(() -> {
-            Rectangle rectangle = new Rectangle(points);
+            Figure rectangle = FigureFactory.create(points);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -25,14 +25,14 @@ public class RectangleTest {
         List<Point> points = new ArrayList(Arrays.asList(new Point(1,1), new Point(1,2), new Point(3,1), new Point(3,3)));
         
         assertThatThrownBy(() -> {
-            Rectangle rectangle = new Rectangle(points);
+            Figure rectangle = FigureFactory.create(points);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 직사각형_넓이구하기(){
         List<Point> points = new ArrayList(Arrays.asList(new Point(1,1), new Point(1,3), new Point(3,1), new Point(3,3)));
-        Rectangle rectangle = new Rectangle(points);
+        Figure rectangle = FigureFactory.create(points);
 
         assertEquals(rectangle.getArea(), 4, 0.001);
         
