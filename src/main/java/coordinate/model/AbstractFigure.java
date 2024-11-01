@@ -17,4 +17,9 @@ public abstract class AbstractFigure implements Figure{
         return this.points;
     }
 
+    @Override
+    public boolean hasPoint(int x, int y){
+        return this.points.contains(new Point(x, y));
+    }
+
 }

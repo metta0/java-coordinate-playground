@@ -1,8 +1,8 @@
-/* package coordinate.view;
+package coordinate.view;
 
 import coordinate.model.Figure;
 import coordinate.model.FigureFactory;
-import coordinate.model.PointTest;
+import coordinate.model.Point;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -27,7 +27,7 @@ public class InputView {
         try {
             input = input.replace(" ", "");
             checkAccuracyOfPoints(input);
-            List<PointTest> points = generatePoints(input);
+            List<Point> points = generatePoints(input);
             return FigureFactory.create(points);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -43,10 +43,10 @@ public class InputView {
         }
     }
 
-    private static List<PointTest> generatePoints(String input) {
+    private static List<Point> generatePoints(String input) {
         String[] inputPoints = input.split(POINT_DELIMITER);
 
-        List<PointTest> points = new ArrayList<>();
+        List<Point> points = new ArrayList<>();
         for (String inputPoint : inputPoints) {
             points.add(generatePoint(inputPoint));
         }
@@ -54,20 +54,20 @@ public class InputView {
         return points;
     }
 
-    private static PointTest generatePoint(String inputPoint) {
+    private static Point generatePoint(String inputPoint) {
         Pattern pattern = Pattern.compile("\\(([0-9]{1,2}),([0-9]{1,2})\\)");
         Matcher matcher = pattern.matcher(inputPoint);
         if (matcher.find()) {
             int x = Integer.parseInt(matcher.group(1));
             int y = Integer.parseInt(matcher.group(2));
-            return new PointTest(x, y);
+            return new Point(x, y);
         }
         throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
     }
 
-    private static void checkDuplicationOf(List<PointTest> points) {
+    private static void checkDuplicationOf(List<Point> points) {
         if (points.size() != new HashSet<>(points).size()) {
             throw new IllegalArgumentException(ERROR_DUPLICATE_POINTS);
         }
     }
-} */
+}

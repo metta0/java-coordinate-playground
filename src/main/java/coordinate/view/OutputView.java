@@ -1,7 +1,7 @@
-/* package coordinate.view;
+package coordinate.view;
 
 import coordinate.model.Figure;
-import coordinate.model.PointTest;
+import coordinate.model.Point;
 
 public class OutputView {
     private static final String FOUR_BLANK = "    ";
@@ -17,7 +17,7 @@ public class OutputView {
     }
 
     private static void showVerticalNumbersWith(Figure figure) {
-        for (int y = PointTest.UPPER_LIMIT; y >= PointTest.LOWER_LIMIT; y--) {
+        for (int y = Point.UPPER_LIMIT; y >= Point.LOWER_LIMIT; y--) {
             showAxisNumber(y);
             System.out.print(VERTICAL_AXIS);
             showPoints(figure, y);
@@ -34,7 +34,7 @@ public class OutputView {
     }
 
     private static void showPoints(Figure figure, int y) {
-        for (int x = PointTest.LOWER_LIMIT; x <= PointTest.UPPER_LIMIT; x++) {
+        for (int x = Point.LOWER_LIMIT; x <= Point.UPPER_LIMIT; x++) {
             if (figure.hasPoint(x, y)) {
                 System.out.print(String.format("%4s", MARK_OF_POINT));
                 continue;
@@ -45,14 +45,14 @@ public class OutputView {
 
     private static void showHorizontalAxis() {
         System.out.print(FOUR_BLANK + ORIGIN);
-        for (int x = PointTest.LOWER_LIMIT; x <= PointTest.UPPER_LIMIT; x++) {
+        for (int x = Point.LOWER_LIMIT; x <= Point.UPPER_LIMIT; x++) {
             System.out.print(HORIZONTAL_AXIS);
         }
         emptyLine();
     }
 
     private static void showHorizontalNumbers() {
-        for (int x = 0; x <= PointTest.UPPER_LIMIT; x++) {
+        for (int x = 0; x <= Point.UPPER_LIMIT; x++) {
             showAxisNumber(x);
         }
         emptyLine();
@@ -65,4 +65,4 @@ public class OutputView {
     public static void showArea(Figure figure) {
         System.out.println(figure.getAreaInfo());
     }
-} */
+}

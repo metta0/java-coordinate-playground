@@ -19,7 +19,7 @@ public class Triangle extends AbstractFigure{
     @Override
     public void checkValidation(List<Point> points) {
         if(isPointCountInvalid(points)) throw new IllegalArgumentException(ERROR_NUMBER_OF_POINTS);
-        if(isLine(points)) throw new IllegalArgumentException(ERROR_POINTS_ON_LINE);
+        if(isStraightLine(points)) throw new IllegalArgumentException(ERROR_POINTS_ON_LINE);
     }
 
     private boolean isPointCountInvalid(List<Point> points){
@@ -28,7 +28,7 @@ public class Triangle extends AbstractFigure{
         return pointSet.size() != NUMBER_OF_POINTS;
     }
     
-    private boolean isLine(List<Point> points){
+    private boolean isStraightLine(List<Point> points){
         double firstSlope = points.get(0).calculateSlope(points.get(1));
         double secondSlope = points.get(1).calculateSlope(points.get(2));
 
@@ -49,7 +49,7 @@ public class Triangle extends AbstractFigure{
     }
 
     @Override
-    public String areaInfo(){
+    public String getAreaInfo(){
         return RESULT_PREFIX + getArea();
     }
     

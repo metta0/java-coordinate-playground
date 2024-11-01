@@ -68,7 +68,7 @@ public class Rectangle extends AbstractFigure {
     }
 
     @Override
-    public String areaInfo(){
+    public String getAreaInfo(){
         return RESULT_PREFIX + getArea();
     }
 }

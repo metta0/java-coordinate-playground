@@ -6,13 +6,13 @@ public class Point {
     private final String INDEX_OUT_OF_BOUNDS = "잘못된 범위의 입력값입니다. 입력값은" + 
                                                 LOWER_LIMIT + "이상" + UPPER_LIMIT + 
                                                 "이하로 입력해주세요.";
-    private static final int LOWER_LIMIT = 1;
-    private static final int UPPER_LIMIT = 24;
+    public static final int LOWER_LIMIT = 1;
+    public static final int UPPER_LIMIT = 24;
 
     private final int x;
     private final int y;
 
-    Point(int x, int y){
+    public Point(int x, int y){
         checkRangeOf(x,y);
 
         this.x = x;

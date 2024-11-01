@@ -34,7 +34,7 @@ public class Line extends AbstractFigure {
     }
 
     @Override
-    public String areaInfo(){
+    public String getAreaInfo(){
         return RESULT_PREFIX + getArea();
     }
 }
